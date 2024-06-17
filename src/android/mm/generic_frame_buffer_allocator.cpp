@@ -2,7 +2,10 @@
 /*
  * Copyright (C) 2021, Google Inc.
  *
- * Allocate FrameBuffer using gralloc API
+ * Allocate FrameBuffer using libui
+ * 
+ * Partial updates from: https://gitlab.baylibre.com/baylibre/ti/android/aosp/external/libcamera
+ * 
  */
 
 #include <dlfcn.h>
