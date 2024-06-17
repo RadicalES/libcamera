@@ -6,9 +6,6 @@
  libcamera
 ===========
 
-**Adopted and test version**
-This version is a merge between various repos to try and get a stable working release for Android 14.
-
 **A complex camera support library for Linux, Android, and ChromeOS**
 
 Cameras are complex devices that need heavy hardware image processing
@@ -27,6 +24,10 @@ systems, including traditional Linux distributions, ChromeOS and Android.
 
 .. section-end-libcamera
 .. section-begin-getting-started
+
+Adopted and test Version
+-------------------------
+This version is a merge between various repos to try and get a stable working release for Android 14.
 
 Getting Started
 ---------------
