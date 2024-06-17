@@ -978,13 +978,17 @@ int Camera::acquire()
 {
 	Private *const d = _d();
 
+	LOG(Camera, Info) << "Start...";
+
 	/*
 	 * No manual locking is required as PipelineHandler::lock() is
 	 * thread-safe.
 	 */
 	int ret = d->isAccessAllowed(Private::CameraAvailable);
-	if (ret < 0)
+	if (ret < 0) {
+		LOG(Camera, Error) << "Not allowed";
 		return ret == -EACCES ? -EBUSY : ret;
+	}
 
 	if (!d->pipe_->acquire()) {
 		LOG(Camera, Info)
@@ -992,6 +996,7 @@ int Camera::acquire()
 		return -EBUSY;
 	}
 
+	LOG(Camera, Info) << "Done!";
 	d->setState(Private::CameraAcquired);
 
 	return 0;

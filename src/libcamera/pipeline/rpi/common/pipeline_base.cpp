@@ -856,6 +856,9 @@ int PipelineHandlerBase::registerCamera(std::unique_ptr<RPi::CameraData> &camera
 
 void PipelineHandlerBase::mapBuffers(Camera *camera, const BufferMap &buffers, unsigned int mask)
 {
+
+	LOG(RPI, Debug) << "Map buffers";
+
 	CameraData *data = cameraData(camera);
 	std::vector<IPABuffer> bufferIds;
 	/*

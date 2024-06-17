@@ -209,7 +209,8 @@ MappedFrameBuffer::MappedFrameBuffer(const FrameBuffer *buffer, MapFlags flags)
 		if (plane.offset > length ||
 		    plane.offset + plane.length > length) {
 			LOG(Buffer, Fatal) << "plane is out of buffer: "
-					   << "buffer length=" << length
+						<< "fd=" << fd
+					   << " buffer length=" << length
 					   << ", plane offset=" << plane.offset
 					   << ", plane length=" << plane.length;
 			return;
@@ -223,6 +224,11 @@ MappedFrameBuffer::MappedFrameBuffer(const FrameBuffer *buffer, MapFlags flags)
 		const int fd = plane.fd.get();
 		auto &info = mappedBuffers[fd];
 		if (!info.address) {
+
+			LOG(Buffer, Debug) << "mmap plane: fd=" << fd
+						   << " length=" << info.mapLength
+						   << " flags=" << mmapFlags;
+
 			void *address = mmap(nullptr, info.mapLength, mmapFlags,
 					     MAP_SHARED, fd, 0);
 			if (address == MAP_FAILED) {

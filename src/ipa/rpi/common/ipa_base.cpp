@@ -353,6 +353,8 @@ void IpaBase::start(const ControlList &controls, StartResult *result)
 
 void IpaBase::mapBuffers(const std::vector<IPABuffer> &buffers)
 {
+	LOG(IPARPI, Debug) << "Mapping frame buffer!";
+	
 	for (const IPABuffer &buffer : buffers) {
 		const FrameBuffer fb(buffer.planes);
 		buffers_.emplace(buffer.id,

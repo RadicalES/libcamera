@@ -3,6 +3,11 @@
  * Copyright (C) 2021, Google Inc.
  *
  * Camera static properties manager
+ * 
+ * 
+ * Partial updates from: https://gitlab.baylibre.com/baylibre/ti/android/aosp/external/libcamera
+ * 
+ * 
  */
 
 #include "camera_capabilities.h"
@@ -1452,6 +1457,36 @@ PixelFormat CameraCapabilities::toPixelFormat(int format) const
 		LOG(HAL, Error) << "Requested format " << utils::hex(format)
 				<< " not supported";
 		return PixelFormat();
+	}
+
+	return it->second;
+}
+
+/*
+ * Check if we need to do software conversion via a post-processor
+ * for an Android format code
+ */
+bool CameraCapabilities::needConversion(int format) const
+{
+	auto it = conversionMap_.find(format);
+	if (it == conversionMap_.end()) {
+		LOG(HAL, Error) << "Requested format " << utils::hex(format)
+				<< " not supported for conversion";
+		return false;
+	}
+
+	return true;
+}
+
+/*
+ * Returns a conversion (input,output) pair for a given Android format code
+ */
+std::pair<PixelFormat, PixelFormat> CameraCapabilities::conversionFormats(int format) const
+{
+	auto it = conversionMap_.find(format);
+	if (it == conversionMap_.end()) {
+		LOG(HAL, Error) << "Requested format " << utils::hex(format)
+				<< " not supported for conversion";
 	}
 
 	return it->second;

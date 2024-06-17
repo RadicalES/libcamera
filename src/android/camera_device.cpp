@@ -295,6 +295,8 @@ std::unique_ptr<CameraDevice> CameraDevice::create(unsigned int id,
  */
 int CameraDevice::initialize(const CameraConfigData *cameraConfigData)
 {
+	LOG(HAL, Debug) << "Initialize camera";
+
 	/*
 	 * Initialize orientation and facing side of the camera.
 	 *
@@ -307,7 +309,11 @@ int CameraDevice::initialize(const CameraConfigData *cameraConfigData)
 	const ControlList &properties = camera_->properties();
 
 	const auto &location = properties.get(properties::Location);
+
 	if (location) {
+
+		LOG(HAL, Debug) << "Location =" << *location;
+
 		switch (*location) {
 		case properties::CameraLocationFront:
 			facing_ = CAMERA_FACING_FRONT;
@@ -345,8 +351,11 @@ int CameraDevice::initialize(const CameraConfigData *cameraConfigData)
 		}
 		facing_ = cameraConfigData->facing;
 	} else {
+		LOG(HAL, Debug) << "Location default external";
 		facing_ = CAMERA_FACING_EXTERNAL;
 	}
+
+	LOG(HAL, Debug) << "Location set to=" << facing_;
 
 	/*
 	 * The Android orientation metadata specifies its rotation correction
@@ -358,7 +367,13 @@ int CameraDevice::initialize(const CameraConfigData *cameraConfigData)
 	 */
 	const auto &rotation = properties.get(properties::Rotation);
 	if (rotation) {
+		
+
 		orientation_ = (360 - *rotation) % 360;
+
+		LOG(HAL, Debug) << "Rotation =" << *rotation 
+						<< "Orientation =" << orientation_;
+
 		if (cameraConfigData && cameraConfigData->rotation != -1 &&
 		    orientation_ != cameraConfigData->rotation) {
 			LOG(HAL, Warning)
@@ -373,6 +388,7 @@ int CameraDevice::initialize(const CameraConfigData *cameraConfigData)
 		}
 		orientation_ = cameraConfigData->rotation;
 	} else {
+		LOG(HAL, Debug) << "Orientation default";
 		orientation_ = 0;
 	}
 
@@ -385,6 +401,8 @@ int CameraDevice::initialize(const CameraConfigData *cameraConfigData)
  */
 int CameraDevice::open(const hw_module_t *hardwareModule)
 {
+	LOG(HAL, Debug) << "Open camera";
+
 	int ret = camera_->acquire();
 	if (ret) {
 		LOG(HAL, Error) << "Failed to acquire the camera";
@@ -411,6 +429,8 @@ void CameraDevice::close()
 {
 	stop();
 
+	LOG(HAL, Debug) << "Close camera";
+
 	camera_->release();
 }
 
@@ -432,7 +452,12 @@ void CameraDevice::flush()
 
 void CameraDevice::stop()
 {
+
+	LOG(HAL, Debug) << "Stop camera";
+
 	MutexLocker stateLock(stateMutex_);
+	if (state_ == State::Stopped)
+		return;
 
 	camera_->stop();
 
@@ -466,6 +491,9 @@ const camera_metadata_t *CameraDevice::getStaticMetadata()
  */
 const camera_metadata_t *CameraDevice::constructDefaultRequestSettings(int type)
 {
+	
+	LOG(HAL, Debug) << "getCameraMetaData type=" << type;
+
 	auto it = requestTemplates_.find(type);
 	if (it != requestTemplates_.end())
 		return it->second->getMetadata();
@@ -526,6 +554,8 @@ int CameraDevice::configureStreams(camera3_stream_configuration_t *stream_list)
 	/* Before any configuration attempt, stop the camera. */
 	stop();
 
+	LOG(HAL, Debug) << "Configure configuration = " << stream_list->num_streams;
+
 	if (stream_list->num_streams == 0) {
 		LOG(HAL, Error) << "No streams in configuration";
 		return -EINVAL;
@@ -565,7 +595,7 @@ int CameraDevice::configureStreams(camera3_stream_configuration_t *stream_list)
 
 		PixelFormat format = capabilities_.toPixelFormat(stream->format);
 
-		LOG(HAL, Info) << "Stream #" << i
+		LOG(HAL, Debug) << "Stream #" << i
 			       << ", direction: " << directionToString(stream->stream_type)
 			       << ", width: " << stream->width
 			       << ", height: " << stream->height
@@ -678,6 +708,9 @@ int CameraDevice::configureStreams(camera3_stream_configuration_t *stream_list)
 		 * introduce a new stream to satisfy the request requirements.
 		 */
 		if (index < 0) {
+
+			LOG(HAL, Warning) << "No match!, fixing pixel format";
+
 			/*
 			 * \todo The pixelFormat should be a 'best-fit' choice
 			 * and may require a validation cycle. This is not yet
@@ -774,6 +807,8 @@ std::unique_ptr<HALFrameBuffer>
 CameraDevice::createFrameBuffer(const buffer_handle_t camera3buffer,
 				PixelFormat pixelFormat, const Size &size)
 {
+	LOG(HAL, Debug) << "createFrameBuffer...";
+
 	CameraBuffer buf(camera3buffer, pixelFormat, size, PROT_READ);
 	if (!buf.isValid()) {
 		LOG(HAL, Fatal) << "Failed to create CameraBuffer";
@@ -931,6 +966,9 @@ bool CameraDevice::isValidRequest(camera3_capture_request_t *camera3Request) con
 
 int CameraDevice::processCaptureRequest(camera3_capture_request_t *camera3Request)
 {
+
+	LOG(HAL, Debug) << "Camera Process Request Start";
+
 	if (!isValidRequest(camera3Request))
 		return -EINVAL;
 
@@ -986,10 +1024,12 @@ int CameraDevice::processCaptureRequest(camera3_capture_request_t *camera3Reques
 
 		switch (cameraStream->type()) {
 		case CameraStream::Type::Mapped:
+			LOG(HAL, Debug) << "processCaptureRequest mapped";
 			/* Mapped streams will be handled in the next loop. */
 			continue;
 
 		case CameraStream::Type::Direct:
+			LOG(HAL, Debug) << "processCaptureRequest direct";
 			/*
 			 * Create a libcamera buffer using the dmabuf
 			 * descriptors of the camera3Buffer for each stream and
@@ -1006,6 +1046,8 @@ int CameraDevice::processCaptureRequest(camera3_capture_request_t *camera3Reques
 			break;
 
 		case CameraStream::Type::Internal:
+
+			LOG(HAL, Debug) << "processCaptureRequest internal";
 			/*
 			 * Get the frame buffer from the CameraStream internal
 			 * buffer pool.
@@ -1033,6 +1075,9 @@ int CameraDevice::processCaptureRequest(camera3_capture_request_t *camera3Reques
 
 		requestedStreams.insert(cameraStream);
 	}
+
+
+	LOG(HAL, Debug) << "processCaptureRequest handle streams";
 
 	/*
 	 * Now handle the Mapped streams. If no buffer has been added for them

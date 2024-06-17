@@ -1,8 +1,21 @@
 # SPDX-License-Identifier: CC0-1.0
 
+# XXX library lookup paths are not being passed through from the cross compile configuration
+android_ndk = get_option('prefix')
+android_lib_dir = get_option('libdir')
+android_include_dir = get_option('includedir').split(':')
+# android_libui_dep = cc.find_library('libui', dirs : android_lib_dir)
+
+message('Android? = ', get_option('android'))
+message('Android NDK=', android_ndk)
+message('Android LibDir=', android_lib_dir)
+message('Android IncDir=', android_include_dir)
+# message('LibCamera_private', libcamera_private)
+
 android_deps = [
     dependency('libexif', required : get_option('android')),
     dependency('libjpeg', required : get_option('android')),
+   # dependency('libui', required : get_option('android')),
     libcamera_private,
 ]
 

@@ -6,3 +6,6 @@
 *.patch
 *.pyc
 __pycache__/
+
+sync.sh
+/reports/
