@@ -1,0 +1,51 @@
+06-16 08:42:51.671   306   358 D libcamera: DEBUG RPISTREAM rpi_stream.cpp:271 Queuing buffer 52 for ISP Output1
+06-16 08:42:51.671   306   358 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:1693 /dev/video25[25:cap]: Queueing buffer 6
+06-16 08:42:51.671   306   358 D libcamera: DEBUG Event event_dispatcher_poll.cpp:216 next timer 0xb40000763fea75d0 expires in 0.989666593
+06-16 08:42:51.672   306   358 D libcamera: DEBUG Event event_dispatcher_poll.cpp:216 next timer 0xb40000763fea75d0 expires in 0.989490685
+06-16 08:42:51.673   306   577 D libcamera: DEBUG HAL camera_device.cpp:970 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': Camera Process Request Start
+06-16 08:42:51.673   306   577 D libcamera: DEBUG Request request.cpp:361 Created request - cookie: 12970367439268886096
+06-16 08:42:51.673   306   577 D libcamera: DEBUG HAL camera_device.cpp:994 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': Queueing request 12970367439268886096 with 1 streams
+06-16 08:42:51.673   306   577 D libcamera: DEBUG HAL camera_device.cpp:1027 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': processCaptureRequest mapped
+06-16 08:42:51.673   306   577 D libcamera: DEBUG HAL camera_device.cpp:1080 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': processCaptureRequest handle streams
+06-16 08:42:51.673   306   577 D libcamera: DEBUG HAL camera_device.cpp:1094 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': 0 - (640x480)[0x00000021] -> (640x480)[NV12] (mapped)
+06-16 08:42:51.673   306   577 D libcamera: DEBUG HAL generic_frame_buffer_allocator.cpp:109 Private::allocate: pixelFormat=35 size=640x480 usage=51
+06-16 08:42:51.674   306   577 D libcamera: DEBUG HAL generic_frame_buffer_allocator.cpp:157 Private::allocate: created fd=138 pixelFormat=NV12 numPlanes=2 dmaLength=462848
+06-16 08:42:51.674   306   577 D libcamera: DEBUG HAL generic_frame_buffer_allocator.cpp:166 Private::allocate: planeInfo i=0 offset=0 size=1966080
+06-16 08:42:51.674   306   577 D libcamera: DEBUG HAL generic_frame_buffer_allocator.cpp:166 Private::allocate: planeInfo i=1 offset=1966080 size=983040
+06-16 08:42:51.674   306   577 D libcamera: DEBUG Buffer framebuffer.cpp:346 Buffer is contiguous
+06-16 08:42:51.674   306   358 D libcamera: DEBUG RPI pipeline_base.cpp:736 queueRequestDevice: New request sequence: 83
+06-16 08:42:51.674   306   358 E libcamera: FATAL Buffer mapped_framebuffer.cpp:211 plane is out of buffer: fd=138 buffer length=462848, plane offset=0, plane length=1966080
+06-16 08:42:51.677   306   358 D libcamera: Backtrace:
+06-16 08:42:51.677   306   358 D libcamera: /vendor/lib64/libcamera.so(_ZN9libcamera17MappedFrameBufferC1EPKNS_11FrameBufferENS_5FlagsINS0_7MapFlagEEE+0x64c) [0x74efcff19c]
+06-16 08:42:51.677   306   358 D libcamera: /vendor/lib64/libcamera.so(_ZNSt3__112__hash_tableINS_17__hash_value_typeIjN9libcamera3RPi12BufferObjectEEENS_22__unordered_map_hasherIjS5_NS_4hashIjEELb1EEENS_21__unordered_map_equalIjS5_NS_8equal_toIjEELb1EEENS_9allocatorIS5_EEE16__construct_nodeIJRKNS_21piecewise_construct_tENS_5tupleIJRjEEENSL_IJRPNS2_11FrameBufferEObEEEEEENS_10unique_ptrINS_11__hash_nodeIS5_PvEENS_22__hash_node_destructorINSE_ISW_EEEEEEDpOT_+0x78) [0x74efd361b8]
+06-16 08:42:51.677   306   358 D libcamera: /vendor/lib64/libcamera.so(+0x0) [0x74efd354c8]
+06-16 08:42:51.677   306   358 D libcamera: /vendor/lib64/libcamera.so(_ZN9libcamera3RPi6Stream17setExportedBufferEPNS_11FrameBufferE+0x84) [0x74efd346c4]
+06-16 08:42:51.677   306   358 D libcamera: /vendor/lib64/libcamera.so(_ZN9libcamera3RPi19PipelineHandlerBase18queueRequestDeviceEPNS_6CameraEPNS_7RequestE+0x108) [0x74efd2e468]
+06-16 08:42:51.677   306   358 D libcamera: /vendor/lib64/libcamera.so(_ZN9libcamera15PipelineHandler14doQueueRequestEPNS_7RequestE+0xec) [0x74efd029fc]
+06-16 08:42:51.677   306   358 D libcamera: /vendor/lib64/libcamera.so(_ZN9libcamera15PipelineHand
+06-16 08:42:51.775  2891  2891 F DEBUG   : Cmdline: /vendor/bin/hw/android.hardware.camera.provider@2.5-service_64
+06-16 08:42:51.775  2891  2891 F DEBUG   : pid: 306, tid: 358, name: provider@2.5-se  >>> /vendor/bin/hw/android.hardware.camera.provider@2.5-service_64 <<<
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #01 pc 00000000000169ec  /vendor/lib64/libcamera-base.so (libcamera::LogMessage::~LogMessage()+572)
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #02 pc 00000000000a919c  /vendor/lib64/libcamera.so (libcamera::MappedFrameBuffer::MappedFrameBuffer(libcamera::FrameBuffer const*, libcamera::Flags<libcamera::MappedFrameBuffer::MapFlag>)+1612)
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #03 pc 00000000000e01b8  /vendor/lib64/libcamera.so (std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, libcamera::RPi::BufferObject>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, libcamera::RPi::BufferObject>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<unsigned int, libcamera::RPi::BufferObject>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, libcamera::RPi::BufferObject>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, libcamera::RPi::BufferObject>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, libcamera::RPi::BufferObject> > >::__construct_node<std::__1::piecewise_construct_t const&, std::__1::tuple<unsigned int&>, std::__1::tuple<libcamera::FrameBuffer*&, bool&&> >(std::__1::piecewise_construct_t const&, std::__1::tuple<unsigned int&>&&, std::__1::tuple<libcamera::FrameBuffer*&, bool&&>&&)+120)
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #04 pc 00000000000df4c8  /vendor/lib64/libcamera.so
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #05 pc 00000000000de6c4  /vendor/lib64/libcamera.so (libcamera::RPi::Stream::setExportedBuffer(libcamera::FrameBuffer*)+132)
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #06 pc 00000000000d8468  /vendor/lib64/libcamera.so (libcamera::RPi::PipelineHandlerBase::queueRequestDevice(libcamera::Camera*, libcamera::Request*)+264)
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #07 pc 00000000000ac9fc  /vendor/lib64/libcamera.so (libcamera::PipelineHandler::doQueueRequest(libcamera::Request*)+236)
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #08 pc 00000000000ac82c  /vendor/lib64/libcamera.so (libcamera::PipelineHandler::doQueueRequests()+76)
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #09 pc 00000000000115c4  /vendor/lib64/libcamera-base.so (libcamera::BoundMethodBase::activatePack(std::__1::shared_ptr<libcamera::BoundMethodPackBase>, bool)+484)
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #10 pc 000000000007ad08  /vendor/lib64/libcamera.so
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #11 pc 00000000000b0de4  /vendor/lib64/libcamera.so (libcamera::Request::Private::prepare(std::__1::chrono::duration<long long, std::__1::ratio<1l, 1000l> >)+580)
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #12 pc 00000000000183b4  /vendor/lib64/libcamera-base.so (libcamera::Object::message(libcamera::Message*)+68)
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #13 pc 0000000000019c6c  /vendor/lib64/libcamera-base.so (libcamera::Thread::dispatchMessages(libcamera::Message::Type)+140)
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #14 pc 0000000000011d60  /vendor/lib64/libcamera-base.so (libcamera::EventDispatcherPoll::processEvents()+48)
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #15 pc 0000000000019b4c  /vendor/lib64/libcamera-base.so (libcamera::Thread::exec()+124)
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #16 pc 0000000000085f00  /vendor/lib64/libcamera.so (libcamera::CameraManager::Private::run()+176)
+06-16 08:42:51.776  2891  2891 F DEBUG   :       #17 pc 000000000001a6fc  /vendor/lib64/libcamera-base.so (void* std::__1::__thread_proxy<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct> >, void (libcamera::Thread::*)(), libcamera::Thread*> >(void*)+60)
+06-16 08:42:51.818   595   612 I cameraserver: Camera provider 'legacy/0-0' has died; removing it
+06-16 08:42:51.818   595   612 I CameraService: onDeviceStatusChanged: Status changed for cameraId=0, newStatus=0
+06-16 08:42:51.838   595   612 W CameraService: removeClientLocked: Could not evict client, no client for camera ID offline-0
+06-16 08:42:51.838   595   612 I CameraService: disconnectClient: Client for camera ID 0 evicted due to device status change from HAL
+06-16 08:42:52.185     0     0 I init    : Service 'vendor.camera-provider-2-5' (pid 306) received signal 6
+06-16 08:42:52.194     0     0 I init    : Sending signal 9 to service 'vendor.camera-provider-2-5' (pid 306) process group...
+06-16 08:42:52.217     0     0 I init    : starting service 'vendor.camera-provider-2-5'...

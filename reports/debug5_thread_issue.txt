@@ -1,0 +1,12 @@
+06-16 12:27:32.637  3152  3154 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:1764 /dev/video1[22:cap]: Dequeuing buffer 1
+06-16 12:27:32.637  3152  3154 D libcamera: DEBUG RPI pisp.cpp:1624 Stream CFE Embedded buffer dequeue, buffer id 2, timestamp: 919495991000
+06-16 12:27:32.688  3390  3390 F DEBUG   : Cmdline: /vendor/bin/hw/android.hardware.camera.provider@2.5-service_64
+06-16 12:27:32.688  3390  3390 F DEBUG   : pid: 3152, tid: 3384, name: HwBinder:3152_2  >>> /vendor/bin/hw/android.hardware.camera.provider@2.5-service_64 <<<
+06-16 12:27:32.688  3390  3390 F DEBUG   :       #00 pc 000000000003ca58  /vendor/lib64/hw/camera.libcamera.so (PostProcessorJpeg::process(Camera3RequestDescriptor::StreamBuffer*)+1496)
+06-16 12:27:32.688  3390  3390 F DEBUG   :       #01 pc 0000000000036840  /vendor/lib64/hw/camera.libcamera.so (CameraStream::PostProcessorWorker::run()+256)
+06-16 12:27:32.688  3390  3390 F DEBUG   :       #02 pc 000000000001a6fc  /vendor/lib64/libcamera-base.so (void* std::__1::__thread_proxy<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct> >, void (libcamera::Thread::*)(), libcamera::Thread*> >(void*)+60)
+06-16 12:27:32.719   588  2882 I cameraserver: Camera provider 'legacy/0-3' has died; removing it
+06-16 12:27:32.719   588  2882 I CameraService: onDeviceStatusChanged: Status changed for cameraId=0, newStatus=0
+06-16 12:27:32.729   588  2882 W CameraService: removeClientLocked: Could not evict client, no client for camera ID offline-0
+06-16 12:27:32.729   588  2882 I CameraService: disconnectClient: Client for camera ID 0 evicted due to device status change from HAL
+06-16 12:27:33.095     0     0 I init    : Service 'vendor.camera-provider-2-5' (pid 3152) received signal 11

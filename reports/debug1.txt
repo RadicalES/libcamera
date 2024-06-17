@@ -1,0 +1,162 @@
+06-14 12:05:49.284  2918  2918 D libcamera: DEBUG HAL camera_device.cpp:994 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': Queueing request 12970367401819506432 with 1 streams
+06-14 12:05:49.284  2918  3315 D libcamera: DEBUG IPARPI cam_helper_imx708.cpp:113 Embedded buffer size: 28800
+06-14 12:05:49.284  2918  3114 D libcamera: DEBUG RPiAwb awb.cpp:530 t: 5201.71 gain R 2.06431 gain B 1.73093 delta2_sum 197.046 prior 1.45041 final 195.595
+06-14 12:05:49.284  2918  2918 D libcamera: DEBUG HAL camera_device.cpp:1027 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': processCaptureRequest mapped
+06-14 12:05:49.284  2918  3114 D libcamera: DEBUG RPiAwb awb.cpp:530 t: 5305.75 gain R 2.09018 gain B 1.71127 delta2_sum 198.305 prior 1.49754 final 196.807
+06-14 12:05:49.283  2918  2919 D libcamera: DEBUG Event event_dispatcher_poll.cpp:216 next timer 0xb400006e27c1bcd0 expires in 0.990852815
+06-14 12:05:49.284  2918  3315 D libcamera: DEBUG IPARPI cam_helper.cpp:251 Metadata updated - Exposure: 13518.87us Frame length: 3619 Line length: 9.21us Gain: 1.49927 Lens: 1 Temperature: 32
+06-14 12:05:49.284  2918  2918 D libcamera: DEBUG HAL camera_device.cpp:1080 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': processCaptureRequest handle streams
+06-14 12:05:49.285  2918  3315 D libcamera: DEBUG RPiLux lux.cpp:96 : estimated lux 752.772
+06-14 12:05:49.285  2918  3114 D libcamera: DEBUG RPiAwb awb.cpp:530 t: 5411.86 gain R 2.11725 gain B 1.69168 delta2_sum 198.388 prior 1.54561 final 196.843
+06-14 12:05:49.285  2918  2918 D libcamera: DEBUG HAL camera_device.cpp:1094 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': 0 - (640x480)[0x00000021] -> (640x480)[NV12] (mapped)
+06-14 12:05:49.285  2918  3114 D libcamera: DEBUG RPiAwb awb.cpp:530 t: 5520.1 gain R 2.14559 gain B 1.67215 delta2_sum 198.4 prior 1.59464 final 196.805
+06-14 12:05:49.285  2918  3315 D libcamera: DEBUG RPiAwb awb.cpp:369 frame_phase 1
+06-14 12:05:49.285  2918  2918 D libcamera: DEBUG HAL generic_frame_buffer_allocator.cpp:106 Private::allocate: pixelFormat=35 size=640x480 usage=51
+06-14 12:05:49.285  2918  3315 D libcamera: DEBUG RPiAgc agc.cpp:293 process for channel 0
+06-14 12:05:49.285  2918  3114 D libcamera: DEBUG RPiAwb awb.cpp:530 t: 5630.5 gain R 2.17529 gain B 1.65269 delta2_sum 198.4 prior 1.64466 final 196.755
+06-14 12:05:49.286  2918  3315 D libcamera: DEBUG RPiAgc agc.cpp:300 Save DeviceStatus and stats for channel 0
+
+....
+
+06-14 12:05:49.365  2918  3114 D libcamera: DEBUG RPiAwb awb.cpp:676 After fine search: r 0.718138 b 0.370045 (gains r 1.39249 b 2.70238)
+06-14 12:05:49.366  2918  3114 D libcamera: DEBUG RPiAwb awb.cpp:733 CT found is 3152.41 with gains r 1.39249 and b 2.70238
+06-14 12:05:49.420  3320  3320 F DEBUG   : Cmdline: /vendor/bin/hw/android.hardware.camera.provider@2.5-service_64
+06-14 12:05:49.420  3320  3320 F DEBUG   : pid: 2918, tid: 2918, name: provider@2.5-se  >>> /vendor/bin/hw/android.hardware.camera.provider@2.5-service_64 <<<
+06-14 12:05:49.420  3320  3320 F DEBUG   :       #00 pc 000000000003e490  /vendor/lib64/hw/camera.libcamera.so (PlatformFrameBufferAllocator::Private::allocate(int, libcamera::Size const&, unsigned int)+304)
+06-14 12:05:49.420  3320  3320 F DEBUG   :       #01 pc 00000000000360c4  /vendor/lib64/hw/camera.libcamera.so (CameraStream::getBuffer()+116)
+06-14 12:05:49.420  3320  3320 F DEBUG   :       #02 pc 000000000002bf28  /vendor/lib64/hw/camera.libcamera.so (CameraDevice::processCaptureRequest(camera3_capture_request*)+2808)
+06-14 12:05:49.420  3320  3320 F DEBUG   :       #03 pc 0000000000028a84  /vendor/lib64/camera.device@3.2-impl.so (android::hardware::camera::device::V3_2::implementation::CameraDeviceSession::processOneCaptureRequest(android::hardware::camera::device::V3_2::CaptureRequest const&)+1460) (BuildId: 6fa37f2ff790e68c4771eb2db2182eab)
+06-14 12:05:49.420  3320  3320 F DEBUG   :       #04 pc 000000000002842c  /vendor/lib64/camera.device@3.2-impl.so (android::hardware::camera::device::V3_2::implementation::CameraDeviceSession::processCaptureRequest(android::hardware::hidl_vec<android::hardware::camera::device::V3_2::CaptureRequest> const&, android::hardware::hidl_vec<android::hardware::camera::device::V3_2::BufferCache> const&, std::__1::function<void (android::hardware::camera::common::V1_0::Status, unsigned int)>)+92) (BuildId: 6fa37f2ff790e68c4771eb2db2182eab)
+06-14 12:05:49.420  3320  3320 F DEBUG   :       #05 pc 00000000000111e8  /vendor/lib64/camera.device@3.3-impl.so (android::hardware::camera::device::V3_3::implementation::CameraDeviceSession::TrampolineSessionInterface_3_3::processCaptureRequest(android::hardware::hidl_vec<android::hardware::camera::device::V3_2::CaptureRequest> const&, android::hardware::hidl_vec<android::hardware::camera::device::V3_2::BufferCache> const&, std::__1::function<void (android::hardware::camera::common::V1_0::Status, unsigned int)>)+152) (BuildId: b5ea142c5251e4c4e8daca9a1060c861)
+06-14 12:05:49.420  3320  3320 F DEBUG   :       #06 pc 0000000000034ee4  /vendor/lib64/android.hardware.camera.device@3.2.so (android::hardware::camera::device::V3_2::BnHwCameraDeviceSession::_hidl_processCaptureRequest(android::hidl::base::V1_0::BnHwBase*, android::hardware::Parcel const&, android::hardware::Parcel*, std::__1::function<void (android::hardware::Parcel&)>)+580) (BuildId: 19ed32d437b2bc1d6ef7b7fd19b1ce07)
+06-14 12:05:49.420  3320  3320 F DEBUG   :       #07 pc 000000000001377c  /vendor/lib64/android.hardware.camera.device@3.3.so (android::hardware::camera::device::V3_3::BnHwCameraDeviceSession::onTransact(unsigned int, android::hardware::Parcel const&, android::hardware::Parcel*, unsigned int, std::__1::function<void (android::hardware::Parcel&)>)+828) (BuildId: 7a00bd0cb0dc25b03d8cbda2ea5b9506)
+06-14 12:05:49.420  3320  3320 F DEBUG   :       #12 pc 00000000000101ac  /vendor/bin/hw/android.hardware.camera.provider@2.5-service_64 (main+204) (BuildId: e89510d49f48a81fa005bc745429b533)
+06-14 12:05:49.474   592   605 I cameraserver: Camera provider 'legacy/0-2' has died; removing it
+06-14 12:05:49.474   592   605 I CameraService: onDeviceStatusChanged: Status changed for cameraId=0, newStatus=0
+06-14 12:05:49.476   592   605 W CameraService: removeClientLocked: Could not evict client, no client for camera ID offline-0
+06-14 12:05:49.476   592   605 I CameraService: disconnectClient: Client for camera ID 0 evicted due to device status change from HAL
+06-14 12:05:49.835     0     0 I init    : Service 'vendor.camera-provider-2-5' (pid 2918) received signal 11
+06-14 12:05:49.848     0     0 I init    : Sending signal 9 to service 'vendor.camera-provider-2-5' (pid 2918) process group...
+06-14 12:05:49.884     0     0 I init    : starting service 'vendor.camera-provider-2-5'...
+06-14 12:05:49.574   592  3311 D CameraTraces: Process trace saved. Use dumpsys media.camera to view.
+06-14 12:05:49.929     0     0 I init    : ... started service 'vendor.camera-provider-2-5' has pid 3327
+06-14 12:05:49.590   592   605 I CameraService: disconnect: Disconnected client for camera 0 for PID 2746
+06-14 12:05:49.590   592   605 D cameraserver: logFgsApiEnd: FGS Logger Transaction failed, -129
+06-14 12:05:49.597  2746  2881 E CameraCaptureSession: android.hardware.camera2.CameraAccessException: 
+
+...
+
+
+06-14 12:05:49.601  2746  2881 D Camera2CameraImpl: Attempt to reopen camera[0] after error[ERROR_CAMERA_IN_USE]
+06-14 12:05:49.601  2746  2881 D Camera2CameraImpl: {Camera@129466c[id=0]} Transitioning camera internal state: OPENED --> REOPENING
+06-14 12:05:49.602  2746  2881 D CameraStateRegistry: Recalculating open cameras:
+06-14 12:05:49.602  2746  2881 D CameraStateMachine: New public camera state CameraState{type=OPENING, error=StateError{code=2, cause=null}} from OPENING and StateError{code=2, cause=null}
+06-14 12:05:49.603  2746  2881 D CameraStateMachine: Publishing new public camera state CameraState{type=OPENING, error=StateError{code=2, cause=null}}
+06-14 12:05:49.604  2746  2881 D SyncCaptureSessionImpl: [androidx.camera.camera2.internal.SynchronizedCaptureSessionImpl@8614a43] Session call close()
+06-14 12:05:49.606  2746  2881 D Camera2CameraImpl: Attempt to reopen camera[0] after error[ERROR_CAMERA_DEVICE]
+06-14 12:05:49.607  2746  2881 D Camera2CameraImpl: {Camera@129466c[id=0]} Transitioning camera internal state: REOPENING --> REOPENING
+06-14 12:05:49.607  2746  2881 D CameraStateMachine: New public camera state CameraState{type=OPENING, error=StateError{code=3, cause=null}} from OPENING and StateError{code=3, cause=null}
+06-14 12:05:49.607  2746  2881 D CameraStateMachine: Publishing new public camera state CameraState{type=OPENING, error=StateError{code=3, cause=null}}
+06-14 12:05:49.607  3327  3327 I android.hardware.camera.provider@2.5-service: CameraProvider@2.5 legacy service is starting.
+06-14 12:05:49.609  2746  2881 D SyncCaptureSessionImpl: [androidx.camera.camera2.internal.SynchronizedCaptureSessionImpl@8614a43] onClosed()
+06-14 12:05:49.609  2746  2881 D Camera2CameraImpl: {Camera@129466c[id=0]} closing camera
+06-14 12:05:49.610  2746  2881 D SyncCaptureSessionImpl: [androidx.camera.camera2.internal.SynchronizedCaptureSessionImpl@8614a43] Session call super.close()
+06-14 12:05:49.612  2746  2881 D Camera2CameraImpl: {Camera@129466c[id=0]} Attempting camera re-open in 700ms: androidx.camera.camera2.internal.Camera2CameraImpl$StateCallback$ScheduledReopen@e1d1221 activeResuming = true
+06-14 12:05:49.615  3327  3327 I libcamera:  INFO HAL camera3_hal.cpp:61 Initialising Android camera HAL
+06-14 12:05:49.616  3327  3327 D libcamera: DEBUG HALConfig camera_hal_config.cpp:189 '/base/axi/pcie@120000/rp1/i2c@88000/imx219@10' (0)[0]
+06-14 12:05:49.617  3327  3327 D libcamera: DEBUG HALConfig camera_hal_config.cpp:189 '/base/axi/pcie@120000/rp1/i2c@88000/imx296@1a' (0)[0]
+06-14 12:05:49.617  3327  3327 D libcamera: DEBUG HALConfig camera_hal_config.cpp:189 '/base/axi/pcie@120000/rp1/i2c@88000/imx477@1a' (0)[0]
+06-14 12:05:49.618  3327  3327 D libcamera: DEBUG HALConfig camera_hal_config.cpp:189 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a' (0)[180]
+06-14 12:05:49.618  3327  3327 D libcamera: DEBUG HALConfig camera_hal_config.cpp:189 '/base/axi/pcie@120000/rp1/i2c@88000/ov5647@36' (0)[0]
+06-14 12:05:49.618  3327  3327 D libcamera: DEBUG IPAModule ipa_module.cpp:325 ipa_rpi_pisp.so: IPA module /vendor/lib64/libcamera//ipa_rpi_pisp.so is not signed
+06-14 12:05:49.619  3327  3327 D libcamera: DEBUG IPAManager ipa_manager.cpp:246 Loaded IPA module '/vendor/lib64/libcamera//ipa_rpi_pisp.so'
+06-14 12:05:49.619  3327  3327 I libcamera:  INFO Camera camera_manager.cpp:284 libcamera v0.2.0
+06-14 12:05:49.619  3327  3328 D libcamera: DEBUG Camera camera_manager.cpp:69 Starting camera manager
+06-14 12:05:49.637  3327  3328 D libcamera: DEBUG DeviceEnumerator device_enumerator.cpp:230 New media device "pispbe" created from /dev/media1
+06-14 12:05:49.638  3327  3328 D libcamera: DEBUG DeviceEnumerator device_enumerator_udev.cpp:96 Defer media device /dev/media1 due to 7 missing dependencies
+06-14 12:05:49.639  3327  3328 D libcamera: DEBUG DeviceEnumerator device_enumerator.cpp:230 New media device "rp1-cfe" created from /dev/media3
+06-14 12:05:49.639  3327  3328 D libcamera: DEBUG DeviceEnumerator device_enumerator_udev.cpp:96 Defer media device /dev/media3 due to 6 missing dependencies
+06-14 12:05:49.640  3327  3328 D libcamera: DEBUG DeviceEnumerator device_enumerator.cpp:230 New media device "pispbe" created from /dev/media0
+06-14 12:05:49.641  3327  3328 D libcamera: DEBUG DeviceEnumerator device_enumerator_udev.cpp:96 Defer media device /dev/media0 due to 2 missing dependencies
+06-14 12:05:49.641  3327  3328 D libcamera: DEBUG DeviceEnumerator device_enumerator.cpp:230 New media device "rpivid" created from /dev/media2
+06-14 12:05:49.641  3327  3328 E libcamera: ERROR MediaDevice media_object.cpp:370 Device node /dev/video19 can't be accessed: Permission denied
+06-14 12:05:49.641  3327  3328 W libcamera:  WARN DeviceEnumerator device_enumerator_udev.cpp:88 Failed to populate media device /dev/media2 (rpivid), skipping
+06-14 12:05:49.642  3327  3328 W libcamera:  WARN DeviceEnumerator device_enumerator_udev.cpp:174 Failed to add device for '/sys/devices/platform/axi/1000800000.codec/media2', skipping
+06-14 12:05:49.642  3327  3328 D libcamera: DEBUG DeviceEnumerator device_enumerator_udev.cpp:322 All dependencies for media device /dev/media0 found
+06-14 12:05:49.642  3327  3328 D libcamera: DEBUG DeviceEnumerator device_enumerator.cpp:258 Added device /dev/media0: pispbe
+06-14 12:05:49.642  3327  3328 D libcamera: DEBUG DeviceEnumerator device_enumerator_udev.cpp:322 All dependencies for media device /dev/media1 found
+06-14 12:05:49.643  3327  3328 D libcamera: DEBUG DeviceEnumerator device_enumerator.cpp:258 Added device /dev/media1: pispbe
+06-14 12:05:49.643  3327  3328 D libcamera: DEBUG DeviceEnumerator device_enumerator_udev.cpp:322 All dependencies for media device /dev/media3 found
+06-14 12:05:49.643  3327  3328 D libcamera: DEBUG DeviceEnumerator device_enumerator.cpp:258 Added device /dev/media3: rp1-cfe
+06-14 12:05:49.643  3327  3328 D libcamera: DEBUG Camera camera_manager.cpp:113 Found registered pipeline handler 'PipelineHandlerPiSP'
+06-14 12:05:49.643  3327  3328 D libcamera: DEBUG DeviceEnumerator device_enumerator.cpp:318 Successful match for media device "rp1-cfe"
+06-14 12:05:49.644  3327  3328 D libcamera: DEBUG DeviceEnumerator device_enumerator.cpp:318 Successful match for media device "pispbe"
+06-14 12:05:49.644  3327  3328 I libcamera:  INFO RPI pisp.cpp:662 libpisp version 1.0.5
+06-14 12:05:49.645  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Exposure (0x00980911)
+06-14 12:05:49.645  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Horizontal Flip (0x00980914)
+06-14 12:05:49.645  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Vertical Flip (0x00980915)
+06-14 12:05:49.645  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Wide Dynamic Range (0x009a0915)
+06-14 12:05:49.645  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Camera Orientation (0x009a0922)
+06-14 12:05:49.645  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Camera Sensor Rotation (0x009a0923)
+06-14 12:05:49.646  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Vertical Blanking (0x009e0901)
+06-14 12:05:49.646  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Horizontal Blanking (0x009e0902)
+06-14 12:05:49.646  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Analogue Gain (0x009e0903)
+06-14 12:05:49.646  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Red Pixel Value (0x009e0904)
+06-14 12:05:49.646  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Green (Red) Pixel Value (0x009e0905)
+06-14 12:05:49.646  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Blue Pixel Value (0x009e0906)
+06-14 12:05:49.647  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Green (Blue) Pixel Value (0x009e0907)
+06-14 12:05:49.647  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Notify Gains (0x009e0909)
+06-14 12:05:49.647  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Link Frequency (0x009f0901)
+06-14 12:05:49.647  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Pixel Rate (0x009f0902)
+06-14 12:05:49.647  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Test Pattern (0x009f0903)
+06-14 12:05:49.647  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'imx708': Control: Digital Gain (0x009f0905)
+06-14 12:05:49.631  3327  3327 I android.hardwar: type=1400 audit(0.0:959): avc:  denied  { read write } for  name="media1" dev="tmpfs" ino=663 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:device:s0 tclass=chr_file permissive=1
+06-14 12:05:49.631  3327  3327 I android.hardwar: type=1400 audit(0.0:960): avc:  denied  { open } for  path="/dev/media1" dev="tmpfs" ino=663 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:device:s0 tclass=chr_file permissive=1
+06-14 12:05:49.643  3327  3327 I android.hardwar: type=1400 audit(0.0:961): avc:  denied  { getattr } for  path="/dev/v4l-subdev2" dev="tmpfs" ino=722 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:device:s0 tclass=chr_file permissive=1
+06-14 12:05:49.735  3327  3328 D libcamera: DEBUG V4L2 v4l2_device.cpp:636 'dw9807 6-000c': Control: Focus, Absolute (0x009a090a)
+06-14 12:05:49.736  3327  3328 D libcamera: DEBUG CameraSensor camera_sensor.cpp:678 'imx708': Apply test pattern mode 0
+06-14 12:05:49.743  3327  3328 D libcamera: DEBUG IPAManager ipa_manager.cpp:317 IPA module /vendor/lib64/libcamera//ipa_rpi_pisp.so signature is not valid
+06-14 12:05:49.744  3327  3328 D libcamera: DEBUG IPAProxy raspberrypi_ipa_proxy.cpp:45 initializing raspberrypi proxy: loading IPA from /vendor/lib64/libcamera//ipa_rpi_pisp.so
+06-14 12:05:49.756  3327  3328 D libcamera: DEBUG RPiBlackLevel black_level.cpp:41  Read black levels red 4096 green 4096 blue 4096
+06-14 12:05:49.756  3327  3328 D libcamera: DEBUG RPiAgc agc.cpp:49 Read AGC channel
+06-14 12:05:49.757  3327  3328 D libcamera: DEBUG RPiAgc agc_channel.cpp:218 AgcConfig
+06-14 12:05:49.757  3327  3328 D libcamera: DEBUG RPiAgc agc.cpp:49 Read AGC channel
+06-14 12:05:49.758  3327  3328 D libcamera: DEBUG RPiAgc agc_channel.cpp:218 AgcConfig
+06-14 12:05:49.758  3327  3328 D libcamera: DEBUG RPiAgc agc.cpp:49 Read AGC channel
+06-14 12:05:49.759  3327  3328 D libcamera: DEBUG RPiAgc agc_channel.cpp:218 AgcConfig
+06-14 12:05:49.760  3327  3328 D libcamera: DEBUG RPiAgc agc.cpp:49 Read AGC channel
+06-14 12:05:49.761  3327  3328 D libcamera: DEBUG RPiAgc agc_channel.cpp:218 AgcConfig
+06-14 12:05:49.761  3327  3328 D libcamera: DEBUG RPiAgc agc.cpp:56 Read 4 channel(s)
+06-14 12:05:49.762  3327  3328 D libcamera: DEBUG RPiAlsc alsc.cpp:139 Read calibrations_Cr calibration for ct 3000
+06-14 12:05:49.763  3327  3328 D libcamera: DEBUG RPiAlsc alsc.cpp:139 Read calibrations_Cr calibration for ct 5000
+06-14 12:05:49.763  3327  3328 D libcamera: DEBUG RPiAlsc alsc.cpp:139 Read calibrations_Cb calibration for ct 3000
+06-14 12:05:49.764  3327  3328 D libcamera: DEBUG RPiAlsc alsc.cpp:139 Read calibrations_Cb calibration for ct 5000
+06-14 12:05:49.764  3327  3328 D libcamera: DEBUG RPiSharpen sharpen.cpp:45 Read threshold 0.25 strength 1 limit 1
+06-14 12:05:49.765  3327  3328 D libcamera: DEBUG RPiDelayedControls delayed_controls.cpp:103 Set a delay of 3 and priority write flag 0 for Horizontal Blanking
+06-14 12:05:49.766  3327  3328 D libcamera: DEBUG RPiDelayedControls delayed_controls.cpp:103 Set a delay of 3 and priority write flag 1 for Vertical Blanking
+06-14 12:05:49.766  3327  3328 D libcamera: DEBUG RPiDelayedControls delayed_controls.cpp:103 Set a delay of 2 and priority write flag 0 for Exposure
+06-14 12:05:49.766  3327  3328 D libcamera: DEBUG RPiDelayedControls delayed_controls.cpp:103 Set a delay of 2 and priority write flag 0 for Analogue Gain
+06-14 12:05:49.766  3327  3328 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:632 /dev/video4[19:cap]: Opened device platform:1f00110000.csi: rp1-cfe: rp1-cfe
+06-14 12:05:49.767  3327  3328 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:632 /dev/video7[20:out]: Opened device platform:1f00110000.csi: rp1-cfe: rp1-cfe
+06-14 12:05:49.767  3327  3328 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:632 /dev/video6[21:cap]: Opened device platform:1f00110000.csi: rp1-cfe: rp1-cfe
+06-14 12:05:49.767  3327  3328 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:632 /dev/video1[22:cap]: Opened device platform:1f00110000.csi: rp1-cfe: rp1-cfe
+06-14 12:05:49.767  3327  3328 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:632 /dev/video20[23:out]: Opened device platform:1000880000.pisp_be: pispbe: pispbe
+06-14 12:05:49.768  3327  3328 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:632 /dev/video24[24:cap]: Opened device platform:1000880000.pisp_be: pispbe: pispbe
+06-14 12:05:49.768  3327  3328 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:632 /dev/video25[25:cap]: Opened device platform:1000880000.pisp_be: pispbe: pispbe
+06-14 12:05:49.768  3327  3328 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:632 /dev/video28[26:out]: Opened device platform:1000880000.pisp_be: pispbe: pispbe
+06-14 12:05:49.768  3327  3328 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:632 /dev/video21[27:out]: Opened device platform:1000880000.pisp_be: pispbe: pispbe
+06-14 12:05:49.768  3327  3328 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:632 /dev/video26[28:cap]: Opened device platform:1000880000.pisp_be: pispbe: pispbe
+06-14 12:05:49.769  3327  3328 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:632 /dev/video22[29:out]: Opened device platform:1000880000.pisp_be: pispbe: pispbe
+06-14 12:05:49.769  3327  3328 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:632 /dev/video27[30:cap]: Opened device platform:1000880000.pisp_be: pispbe: pispbe
+06-14 12:05:49.769  3327  3328 D libcamera: DEBUG HAL camera_device.cpp:298 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': Initialize camera
+06-14 12:05:49.769  3327  3328 D libcamera: DEBUG HAL camera_device.cpp:315 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': Location =2
+06-14 12:05:49.770  3327  3328 D libcamera: DEBUG HAL camera_device.cpp:358 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': Location set to=0
+06-14 12:05:49.770  3327  3328 D libcamera: DEBUG HAL camera_device.cpp:374 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': Rotation =180Orientation =180
+06-14 12:05:49.770  3327  3328 I libcamera:  INFO Camera camera.cpp:981 Start...
+06-14 12:05:49.770  3327  3328 I libcamera:  INFO Camera camera.cpp:999 Done!
+06-14 12:05:49.771  3327  3328 D libcamera: DEBUG RPI pipeline_base.cpp:1001 Format: 1536x864 fmt SRGGB10 Score: 10600 (best 10600)
+06-14 12:05:49.771  3327  3328 D libcamera: DEBUG RPI pipeline_base.cpp:1001 Format: 2304x1296 fmt SRGGB10 Score: 8200 (best 8200)
+06-14 12:05:49.772  3327  3328 D libcamera: DEBUG RPI pipeline_base.cpp:1001 Format: 4608x2592 fmt SRGGB10 Score: 1000 (best 1000)
+
+
+

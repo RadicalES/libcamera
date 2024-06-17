@@ -1,0 +1,39 @@
+
+06-14 12:54:14.671   309   580 D libcamera: DEBUG HAL generic_camera_buffer.cpp:77 Create Buffer name=NV12 numplanes=2 size=640x480 numFds=3
+06-14 12:54:14.671   309   361 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:1764 /dev/video36[30:cap]: Dequeuing buffer 0
+06-14 12:54:14.671   309   580 D libcamera: DEBUG HAL generic_camera_buffer.cpp:90 camera3Buffer data=51
+06-14 12:54:14.671   309   580 D libcamera: DEBUG HAL generic_camera_buffer.cpp:90 camera3Buffer data=117
+06-14 12:54:14.671   309   361 D libcamera: DEBUG Event event_dispatcher_poll.cpp:216 next timer 0xb40000736702a9b0 expires in 0.983870203
+06-14 12:54:14.671   309   580 D libcamera: DEBUG HAL generic_camera_buffer.cpp:97 Discontiguous planes are not supported
+06-14 12:54:14.671   309   580 D libcamera: DEBUG HAL generic_camera_buffer.cpp:90 camera3Buffer data=118
+06-14 12:54:14.671   309   580 D libcamera: DEBUG HAL generic_camera_buffer.cpp:97 Discontiguous planes are not supported
+06-14 12:54:14.671   309   580 D libcamera: DEBUG Buffer framebuffer.cpp:346 Buffer is contiguous
+06-14 12:54:14.671   309   580 D libcamera: DEBUG HAL camera_device.cpp:1045 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': 0 - (640x480)[0x00000023] -> (640x480)[NV12] (direct)
+06-14 12:54:14.671   309   580 D libcamera: DEBUG HAL camera_device.cpp:1080 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': processCaptureRequest handle streams
+06-14 12:54:14.672   309   361 D libcamera: DEBUG RPI pipeline_base.cpp:736 queueRequestDevice: New request sequence: 175
+06-14 12:54:14.672   309   361 D libcamera: DEBUG RPISTREAM rpi_stream.cpp:271 Queuing buffer 14 for ISP Output1
+06-14 12:54:14.672   309   361 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:1693 /dev/video34[25:cap]: Queueing buffer 7
+06-14 12:54:14.672   309   361 D libcamera: DEBUG Event event_dispatcher_poll.cpp:216 next timer 0xb40000736702a9b0 expires in 0.983176166
+06-14 12:54:14.673   309   309 D libcamera: DEBUG HAL camera_device.cpp:970 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': Camera Process Request Start
+06-14 12:54:14.673   309   309 D libcamera: DEBUG Request request.cpp:361 Created request - cookie: 12970367424087148592
+06-14 12:54:14.673   309   309 D libcamera: DEBUG HAL camera_device.cpp:994 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': Queueing request 12970367424087148592 with 1 streams
+06-14 12:54:14.673   309   309 D libcamera: DEBUG HAL camera_device.cpp:1027 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': processCaptureRequest mapped
+06-14 12:54:14.673   309   309 D libcamera: DEBUG HAL camera_device.cpp:1080 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': processCaptureRequest handle streams
+06-14 12:54:14.673   309   309 D libcamera: DEBUG HAL camera_device.cpp:1094 '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a': 0 - (640x480)[0x00000021] -> (640x480)[NV12] (mapped)
+06-14 12:54:14.673   309   309 D libcamera: DEBUG HAL generic_frame_buffer_allocator.cpp:108 Private::allocate: hardwareModule=0x0 allocDevice_=0x0 pixelFormat=35 size=640x480 usage=51
+06-14 12:54:14.680   309   361 D libcamera: DEBUG RPI pipeline_base.cpp:1400 Frame start 182
+06-14 12:54:14.680   309   361 D libcamera: DEBUG RPiDelayedControls delayed_controls.cpp:240 frame 182 started
+06-14 12:54:14.680   309   361 D libcamera: DEBUG RPiDelayedControls delayed_controls.cpp:270 Setting Analogue Gain to 341 at index 181
+06-14 12:54:14.680   309   361 D libcamera: DEBUG RPiDelayedControls delayed_controls.cpp:270 Setting Exposure to 1635 at index 181
+06-14 12:54:14.681   309   361 D libcamera: DEBUG RPiDelayedControls delayed_controls.cpp:270 Setting Vertical Blanking to 2755 at index 182
+06-14 12:54:14.681   309   361 D libcamera: DEBUG Event event_dispatcher_poll.cpp:216 next timer 0xb40000736702a9b0 expires in 0.974379333
+06-14 12:54:14.688   309   361 D libcamera: DEBUG V4L2 v4l2_videodevice.cpp:1764 /dev/video4[19:cap]: Dequeuing buffer 2
+
+06-14 12:54:14.673   309   309 D libcamera: DEBUG HAL generic_frame_buffer_allocator.cpp:108 Private::allocate: hardwareModule=0x0 allocDevice_=0x0 pixelFormat=35 size=640x480 usage=51
+06-14 12:57:16.632  2917  3116 D libcamera: DEBUG HAL generic_frame_buffer_allocator.cpp:80 PlatformFrameBufferAllocator::Private hardwareModule=0x0 / 0x73f55e2c58
+06-14 12:57:16.633  2917  3116 D libcamera: DEBUG HAL generic_frame_buffer_allocator.cpp:80 PlatformFrameBufferAllocator::Private hardwareModule=0x0 / 0x73f55e2c58
+06-14 12:58:02.647  2917  3115 D libcamera: DEBUG HAL generic_frame_buffer_allocator.cpp:108 Private::allocate: hardwareModule=0x0 allocDevice_=0x0 pixelFormat=35 size=640x480 usage=51
+06-14 12:58:03.750  3154  3352 D libcamera: DEBUG HAL generic_frame_buffer_allocator.cpp:80 PlatformFrameBufferAllocator::Private hardwareModule=0x0 / 0x797717fc58
+06-14 12:58:03.751  3154  3352 D libcamera: DEBUG HAL generic_frame_buffer_allocator.cpp:80 PlatformFrameBufferAllocator::Private hardwareModule=0x0 / 0x797717fc58
+
+
